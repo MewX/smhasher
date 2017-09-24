@@ -44,22 +44,22 @@ struct HashInfo
 HashInfo g_hashes[] =
 {
     // our hashes
-  { xtea_md,        64, 0x00000000, "xtea_md", "xtea_mp" },
+  { xtea_md,        64, 0x00000000, "xtea_md", "xtea_md" },
   { xtea_mmo,        64, 0x00000000, "xtea_mmo", "xtea_mmo" },
   { xtea_mp,       64, 0x00000000, "xtea_mp", "xtea_mp" },
-  { speck_md,         64, 0x00000000, "speck_md",  "speck_mp" },
+  { speck_md,         64, 0x00000000, "speck_md",  "speck_md" },
   { speck_mmo,        64, 0x00000000, "speck_mmo", "speck_mmo" },
   { speck_mp,         64, 0x00000000, "speck_mp",  "speck_mp" },
-  { simon_md,         64, 0x00000000, "simon_md",  "simon_mp" },
+  { simon_md,         64, 0x00000000, "simon_md",  "simon_md" },
   { simon_mmo,        64, 0x00000000, "simon_mmo", "simon_mmo" },
   { simon_mp,         64, 0x00000000, "simon_mp",  "simon_mp" },
-  { prince_md,         64, 0x00000000, "prince_md",  "prince_mp" },
+  { prince_md,         64, 0x00000000, "prince_md",  "prince_md" },
   { prince_mmo,        64, 0x00000000, "prince_mmo", "prince_mmo" },
   { prince_mp,         64, 0x00000000, "prince_mp",  "prince_mp" },
-  { lblock_md,         64, 0x00000000, "lblock_md",  "lblock_mp" },
+  { lblock_md,         64, 0x00000000, "lblock_md",  "lblock_md" },
   { lblock_mmo,        64, 0x00000000, "lblock_mmo", "lblock_mmo" },
   { lblock_mp,         64, 0x00000000, "lblock_mp",  "lblock_mp" },
-  { sea_md,         128, 0x00000000, "sea_md",  "sea_mp" },
+  { sea_md,         128, 0x00000000, "sea_md",  "sea_md" },
   { sea_mmo,        128, 0x00000000, "sea_mmo", "sea_mmo" },
   { sea_mp,         128, 0x00000000, "sea_mp",  "sea_mp" },
   
