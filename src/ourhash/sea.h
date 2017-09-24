@@ -16,6 +16,7 @@ typedef uint8_t u8;
 #define SIZE 96//n : plaintext size, key size. k*6B
 #define B 16 //processor (or word) size.
 #define NB (SIZE/(2*B)) //nb = n/2b : number of words per Feistel branch.
+#undef NBROUND
 #define NBROUND 95 // odd number
 
 #define MASK 0xFFFF
@@ -174,7 +175,7 @@ typedef uint8_t u8;
 }
 
 #define dec SEA_dec
- void __attribute__ ((noinline)) dec(u16 *mkey, u16 *rkey, u16 *state) {
+ void __attribute__ ((noinline)) dec(u16 mkey[2*NB], u16 rkey[NBROUND][2*NB], u16 state[2*NB]) {
      KeySchedul(mkey,rkey);
      Decrypt(state,rkey);
  }
