@@ -68,6 +68,9 @@ HashInfo g_hashes[] =
   { clefia_md,         128, 0x00000000, "clefia_md",  "clefia_md" },
   { clefia_mmo,        128, 0x00000000, "clefia_mmo", "clefia_mmo" },
   { clefia_mp,         128, 0x00000000, "clefia_mp",  "clefia_mp" },
+  { camellia_md,         128, 0x00000000, "camellia_md",  "camellia_md" },
+  { camellia_mmo,        128, 0x00000000, "camellia_mmo", "camellia_mmo" },
+  { camellia_mp,         128, 0x00000000, "camellia_mp",  "camellia_mp" },
   
   
   

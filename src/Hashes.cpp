@@ -103,6 +103,17 @@ void clefia_mp               ( const void * key, int len, uint32_t seed, void * 
     HASH_CLEFIA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
+#include "ourhash/camellia.h"
+void camellia_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_CAMELLIA_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void camellia_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_CAMELLIA_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void camellia_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_CAMELLIA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
 
 
 
