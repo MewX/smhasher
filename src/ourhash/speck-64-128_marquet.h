@@ -63,7 +63,7 @@ void HASH_SPECK_PFMD(uint64_t nonce, const u8 firmware[], const uint16_t size, u
     *(uint64_t *)state = nonce;
     memcpy(l, &size, 2); // copy length into key to make it prefix-free
     KeyExpansion ( l, k );
-    Decrypt ( state, state, k );
+    Decrypt ( (u32 *)state, (u32 *)state, k );
 
     // decrypt main message
 #undef ROUND_SIZE
@@ -74,7 +74,7 @@ void HASH_SPECK_PFMD(uint64_t nonce, const u8 firmware[], const uint16_t size, u
         memcpy(k, firmware + idx + 12, 4); // 4 bytes message
 
         KeyExpansion ( l, k );
-        Decrypt ( state, state, k );
+        Decrypt ( (u32 *)state, (u32 *)state, k );
     }
     residual = size - idx; //how many bytes left not hashed
     //printf("Last idx = %d; residual = %d.\n", idx, residual);
@@ -89,7 +89,7 @@ void HASH_SPECK_PFMD(uint64_t nonce, const u8 firmware[], const uint16_t size, u
     memcpy(l, key, 12);
     memcpy(k, key + 12, 4);
     KeyExpansion ( l, k );
-    Decrypt ( state, state, k );
+    Decrypt ( (u32 *)state, (u32 *)state, k );
 }
 
 /**
@@ -123,7 +123,7 @@ void HASH_SPECK_MP(uint64_t nonce, const u8 firmware[], const uint16_t size, u8 
 
         // decipher
         KeyExpansion ( l, k );
-        Decrypt ( state, nextState, k );
+        Decrypt ( (u32 *)state, (u32 *)nextState, k );
 
         // calc next state
         *(uint64_t *) state ^= *(uint64_t *) key ^ *(uint64_t *) nextState;
@@ -141,7 +141,7 @@ void HASH_SPECK_MP(uint64_t nonce, const u8 firmware[], const uint16_t size, u8 
     memcpy(state, firmware + idx, residual);
     memset(state + residual, 0, ROUND_SIZE - residual); // fill the missing bytes with 0
     KeyExpansion ( l, k );
-    Decrypt ( state, nextState, k );
+    Decrypt ( (u32 *)state, (u32 *)nextState, k );
     *(uint64_t *) state ^= *(uint64_t *) key ^ *(uint64_t *) nextState;
 }
 
@@ -176,7 +176,7 @@ void HASH_SPECK_MMO(uint64_t nonce, const u8 firmware[], const uint16_t size, u8
 
         // decipher
         KeyExpansion ( l, k );
-        Decrypt ( state, nextState, k );
+        Decrypt ( (u32 *)state, (u32 *)nextState, k );
 
         // calc next state
         *(uint64_t *) state ^= *(uint64_t *) nextState;
@@ -194,7 +194,7 @@ void HASH_SPECK_MMO(uint64_t nonce, const u8 firmware[], const uint16_t size, u8
     memcpy(state, firmware + idx, residual);
     memset(state + residual, 0, ROUND_SIZE - residual); // fill the missing bytes with 0
     KeyExpansion ( l, k );
-    Decrypt ( state, nextState, k );
+    Decrypt ( (u32 *)state, (u32 *)nextState, k );
     *(uint64_t *) state ^= *(uint64_t *) nextState;
 }
 
