@@ -19,6 +19,9 @@ void simon_mp               ( const void * key, int len, uint32_t seed, void * o
 void prince_md               ( const void * key, int len, uint32_t seed, void * out );
 void prince_mmo               ( const void * key, int len, uint32_t seed, void * out );
 void prince_mp               ( const void * key, int len, uint32_t seed, void * out );
+void lblock_md               ( const void * key, int len, uint32_t seed, void * out );
+void lblock_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void lblock_mp               ( const void * key, int len, uint32_t seed, void * out );
 
 
 //----------

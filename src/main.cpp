@@ -56,6 +56,9 @@ HashInfo g_hashes[] =
   { prince_md,         64, 0x00000000, "prince_md",  "prince_mp" },
   { prince_mmo,        64, 0x00000000, "prince_mmo", "prince_mmo" },
   { prince_mp,         64, 0x00000000, "prince_mp",  "prince_mp" },
+  { lblock_md,         64, 0x00000000, "lblock_md",  "lblock_mp" },
+  { lblock_mmo,        64, 0x00000000, "lblock_mmo", "lblock_mmo" },
+  { lblock_mp,         64, 0x00000000, "lblock_mp",  "lblock_mp" },
   
   
   
