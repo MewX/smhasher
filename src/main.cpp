@@ -62,6 +62,9 @@ HashInfo g_hashes[] =
   { sea_md,         128, 0x00000000, "sea_md",  "sea_md" },
   { sea_mmo,        128, 0x00000000, "sea_mmo", "sea_mmo" },
   { sea_mp,         128, 0x00000000, "sea_mp",  "sea_mp" },
+  { lea_md,         128, 0x00000000, "lea_md",  "lea_md" },
+  { lea_mmo,        128, 0x00000000, "lea_mmo", "lea_mmo" },
+  { lea_mp,         128, 0x00000000, "lea_mp",  "lea_mp" },
   
   
   

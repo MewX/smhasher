@@ -25,6 +25,9 @@ void lblock_mp               ( const void * key, int len, uint32_t seed, void * 
 void sea_md               ( const void * key, int len, uint32_t seed, void * out );
 void sea_mmo               ( const void * key, int len, uint32_t seed, void * out );
 void sea_mp               ( const void * key, int len, uint32_t seed, void * out );
+void lea_md               ( const void * key, int len, uint32_t seed, void * out );
+void lea_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void lea_mp               ( const void * key, int len, uint32_t seed, void * out );
 
 
 //----------
