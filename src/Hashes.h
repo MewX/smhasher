@@ -22,6 +22,9 @@ void prince_mp               ( const void * key, int len, uint32_t seed, void * 
 void lblock_md               ( const void * key, int len, uint32_t seed, void * out );
 void lblock_mmo               ( const void * key, int len, uint32_t seed, void * out );
 void lblock_mp               ( const void * key, int len, uint32_t seed, void * out );
+void sea_md               ( const void * key, int len, uint32_t seed, void * out );
+void sea_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void sea_mp               ( const void * key, int len, uint32_t seed, void * out );
 
 
 //----------

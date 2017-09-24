@@ -59,6 +59,9 @@ HashInfo g_hashes[] =
   { lblock_md,         64, 0x00000000, "lblock_md",  "lblock_mp" },
   { lblock_mmo,        64, 0x00000000, "lblock_mmo", "lblock_mmo" },
   { lblock_mp,         64, 0x00000000, "lblock_mp",  "lblock_mp" },
+  { sea_md,         128, 0x00000000, "sea_md",  "sea_mp" },
+  { sea_mmo,        128, 0x00000000, "sea_mmo", "sea_mmo" },
+  { sea_mp,         128, 0x00000000, "sea_mp",  "sea_mp" },
   
   
   
