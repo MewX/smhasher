@@ -53,6 +53,9 @@ HashInfo g_hashes[] =
   { simon_md,         64, 0x00000000, "simon_md",  "simon_mp" },
   { simon_mmo,        64, 0x00000000, "simon_mmo", "simon_mmo" },
   { simon_mp,         64, 0x00000000, "simon_mp",  "simon_mp" },
+  { prince_md,         64, 0x00000000, "prince_md",  "prince_mp" },
+  { prince_mmo,        64, 0x00000000, "prince_mmo", "prince_mmo" },
+  { prince_mp,         64, 0x00000000, "prince_mp",  "prince_mp" },
   
   
   

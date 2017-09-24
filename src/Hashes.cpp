@@ -45,6 +45,17 @@ void simon_mp               ( const void * key, int len, uint32_t seed, void * o
     HASH_SIMON_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
+#include "ourhash/prince.h"
+void prince_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_PRINCE_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void prince_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_PRINCE_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void prince_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_PRINCE_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
 
 
 
