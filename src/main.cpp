@@ -47,6 +47,9 @@ HashInfo g_hashes[] =
   { xtea_md,        64, 0x00000000, "xtea_md", "xtea_mp" },
   { xtea_mmo,        64, 0x00000000, "xtea_mmo", "xtea_mmo" },
   { xtea_mp,       64, 0x00000000, "xtea_mp", "xtea_mp" },
+  { speck_md,         64, 0x00000000, "speck_md",  "speck_mp" },
+  { speck_mmo,        64, 0x00000000, "speck_mmo", "speck_mmo" },
+  { speck_mp,         64, 0x00000000, "speck_mp",  "speck_mp" },
   
   
   

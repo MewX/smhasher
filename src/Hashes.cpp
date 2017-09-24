@@ -23,6 +23,18 @@ void xtea_mp               ( const void * key, int len, uint32_t seed, void * ou
     HASH_XTEA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
+#include "ourhash/speck-64-128_marquet.h"
+void speck_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_SPECK_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void speck_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_SPECK_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void speck_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_SPECK_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
+
 
 
 //----------------------------------------------------------------------------
