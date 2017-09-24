@@ -34,6 +34,17 @@ void speck_mp               ( const void * key, int len, uint32_t seed, void * o
     HASH_SPECK_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
+#include "ourhash/simon-64-128_marquet.h"
+void simon_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_SIMON_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void simon_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_SIMON_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void simon_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_SIMON_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
 
 
 

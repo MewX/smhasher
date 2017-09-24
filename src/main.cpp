@@ -50,6 +50,9 @@ HashInfo g_hashes[] =
   { speck_md,         64, 0x00000000, "speck_md",  "speck_mp" },
   { speck_mmo,        64, 0x00000000, "speck_mmo", "speck_mmo" },
   { speck_mp,         64, 0x00000000, "speck_mp",  "speck_mp" },
+  { simon_md,         64, 0x00000000, "simon_md",  "simon_mp" },
+  { simon_mmo,        64, 0x00000000, "simon_mmo", "simon_mmo" },
+  { simon_mp,         64, 0x00000000, "simon_mp",  "simon_mp" },
   
   
   
