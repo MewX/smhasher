@@ -23,6 +23,7 @@ typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
 
+#define KeyExpansion SPECK_KeyExpansion
 void KeyExpansion ( u32 l[], u32 k[] )
 {
     u8 i;
@@ -33,6 +34,7 @@ void KeyExpansion ( u32 l[], u32 k[] )
     }
 }
 
+#define Decrypt SPECK_Decrypt
 void __attribute__ ((noinline)) Decrypt ( u32 text[], u32 crypt[], u32 key[] )
 {
     u8 i;
@@ -197,5 +199,8 @@ void HASH_SPECK_MMO(uint64_t nonce, const u8 firmware[], const uint16_t size, u8
     Decrypt ( (u32 *)state, (u32 *)nextState, k );
     *(uint64_t *) state ^= *(uint64_t *) nextState;
 }
+
+#undef KeyExpansion 
+#undef Decrypt 
 
 #endif
