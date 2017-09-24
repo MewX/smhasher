@@ -65,6 +65,9 @@ HashInfo g_hashes[] =
   { lea_md,         128, 0x00000000, "lea_md",  "lea_md" },
   { lea_mmo,        128, 0x00000000, "lea_mmo", "lea_mmo" },
   { lea_mp,         128, 0x00000000, "lea_mp",  "lea_mp" },
+  { clefia_md,         128, 0x00000000, "clefia_md",  "clefia_md" },
+  { clefia_mmo,        128, 0x00000000, "clefia_mmo", "clefia_mmo" },
+  { clefia_mp,         128, 0x00000000, "clefia_mp",  "clefia_mp" },
   
   
   

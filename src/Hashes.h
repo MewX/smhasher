@@ -28,6 +28,9 @@ void sea_mp               ( const void * key, int len, uint32_t seed, void * out
 void lea_md               ( const void * key, int len, uint32_t seed, void * out );
 void lea_mmo               ( const void * key, int len, uint32_t seed, void * out );
 void lea_mp               ( const void * key, int len, uint32_t seed, void * out );
+void clefia_md               ( const void * key, int len, uint32_t seed, void * out );
+void clefia_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void clefia_mp               ( const void * key, int len, uint32_t seed, void * out );
 
 
 //----------

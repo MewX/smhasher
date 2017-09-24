@@ -92,6 +92,17 @@ void lea_mp               ( const void * key, int len, uint32_t seed, void * out
     HASH_LEA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
+#include "ourhash/clefia.h"
+void clefia_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_CLEFIA_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void clefia_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_CLEFIA_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void clefia_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_CLEFIA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
 
 
 
