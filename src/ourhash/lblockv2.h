@@ -144,37 +144,6 @@ void Decrypt(u8 x[8], u8 subkey[NBROUND][4])
     }
 }
 
-void __attribute__ ((noinline)) HASH_LBLOCK(uint64_t nonce, const u8 firmware[], const uint16_t size, u8 state[8])
-{
-    // write codes here
-#define ROUND_SIZE 10
-    u8 mkey[ROUND_SIZE];
-    u8 rkey[NBROUND][4];
-
-    u16 idx = 0;
-    u16 residual = size;
-    memcpy(state, &nonce, sizeof(uint64_t)); // 16 * 8 = 128 key
-    for(;idx<size-ROUND_SIZE;idx+=ROUND_SIZE){     //first n blocks
-        //printf("Processing idx = %d: ", idx);
-        //for (i = 0; i < ROUND_SIZE; i ++) printf("0x%02X ", firmware[idx + i]);
-        //printf("\n");
-        memcpy(mkey, (firmware+(idx*sizeof(uint8_t))), ROUND_SIZE);
-
-        EncryptKeySchedule(mkey,rkey);
-        Decrypt(state, rkey);
-    }
-    residual = size - idx; //how many bytes left not hashed
-    //printf("Last idx = %d; residual = %d.\n", idx, residual);
-
-    //last block if firmware is not whole multiple of 128 bit
-    memcpy(mkey, (firmware+(idx*sizeof(uint8_t))), residual);
-    memset(mkey + residual, 0, ROUND_SIZE - residual);
-
-    EncryptKeySchedule(mkey,rkey);
-    Decrypt(state, rkey); //fill the missing byte with 0
-}
-
-
 //------------------------------------------------
 /**
  * FOR: 64b block, 80b key
