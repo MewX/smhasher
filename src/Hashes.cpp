@@ -2,12 +2,28 @@
 
 #include "Random.h"
 
+#define SMHASHER
+
 
 #include <stdlib.h>
 //#include <stdint.h>
 #include <assert.h>
 //#include <emmintrin.h>
 //#include <xmmintrin.h>
+
+//----------------------------------------------------------------------------
+#include "ourhash/xtea.h"
+void xtea_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_XTEA_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void xtea_mmo               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_XTEA_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void xtea_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_XTEA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+
+
 
 //----------------------------------------------------------------------------
 // fake / bad hashes

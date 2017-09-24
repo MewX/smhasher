@@ -43,6 +43,14 @@ struct HashInfo
 
 HashInfo g_hashes[] =
 {
+    // our hashes
+  { xtea_md,        64, 0x00000000, "xtea_md", "xtea_mp" },
+  { xtea_mmo,        64, 0x00000000, "xtea_mmo", "xtea_mmo" },
+  { xtea_mp,       64, 0x00000000, "xtea_mp", "xtea_mp" },
+  
+  
+  
+  //------------------------------
   { DoNothingHash,        32, 0x00000000, "donothing32", "Do-Nothing function (only valid for measuring call overhead)" },
   { DoNothingHash,        64, 0x00000000, "donothing64", "Do-Nothing function (only valid for measuring call overhead)" },
   { DoNothingHash,       128, 0x00000000, "donothing128", "Do-Nothing function (only valid for measuring call overhead)" },
@@ -564,7 +572,8 @@ int main ( int argc, char ** argv )
 
   SetAffinity((1 << 2));
 
-  SelfTest();
+  // no need to selftest
+  //SelfTest();
 
   int timeBegin = clock();
 

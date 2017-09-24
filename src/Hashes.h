@@ -6,6 +6,12 @@
 #include "MurmurHash2.h"
 #include "MurmurHash3.h"
 
+// our testings
+void xtea_md               ( const void * key, int len, uint32_t seed, void * out );
+void xtea_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void xtea_mp               ( const void * key, int len, uint32_t seed, void * out );
+
+
 //----------
 // These are _not_ hash functions (even though people tend to use crc32 as one...)
 
