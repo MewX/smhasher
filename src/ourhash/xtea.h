@@ -65,20 +65,16 @@ void tean(uint32_t *v, uint32_t *k,uint32_t ncycles)      /* replaces TEA's code
  * Prefix-free Merkle Damgard construction:
  * message length is the first block, and the block size is key-size.
  */
-void __attribute__ ((noinline)) HASH_XTEA_PFMD(uint64_t nonce, const u8 firmware[], const uint16_t size, u8 state[8])
+void HASH_XTEA_PFMD(uint64_t nonce, const u8 firmware[], const uint16_t size, u8 state[8])
 {
-    fprintf(stderr, "%llx-", nonce);
     u16 idx = 0;
-    u32 key[4] = { 0 }; // temp key
+    u8 key[16] = { 0 }; // temp key
     u16 residual = size; // message length in bytes
-    fprintf(stderr, "!");
     *(uint64_t *)state = nonce;
-    //memcpy(state, &nonce, 8); // key block
 
     // decrypt "length" first
     memcpy(key, &size, 2); // copy length into key to make it prefix-free
-    tean((uint32_t *) state, key, 64);
-    fprintf(stderr, "0");
+    tean((uint32_t *) state, (u32 *)key, 64);
 
     // decrypt main message
 #undef ROUND_SIZE
@@ -89,26 +85,24 @@ void __attribute__ ((noinline)) HASH_XTEA_PFMD(uint64_t nonce, const u8 firmware
         //for (i = 0; i < ROUND_SIZE; i ++) printf("0x%02X ", firmware[idx + i]);
         //printf("\n");
         memcpy(key, firmware + (idx), ROUND_SIZE);
-        tean((uint32_t *) state, key, 64);
+        tean((u32 *) state, (u32 *)key, 64);
     }
     residual = size - idx; //how many bytes left not hashed
     //printf("Last idx = %d; residual = %d.\n", idx, residual);
-    fprintf(stderr, "1");
 
     // last block
-    memcpy(key, firmware + (idx), residual);
+    memcpy(key, firmware + idx, residual);
     if (ROUND_SIZE - residual >= 1)
     {
         memset(key + residual, 0x80, 1); // padding, first byte 0b10000000
         memset(key + residual + 1, 0, ROUND_SIZE - residual - 1); // then all 0x00
     }
-    fprintf(stderr, "2\n");
-    tean((uint32_t *) state, key, 64);
+    tean((uint32_t *) state, (u32 *)key, 64);
 }
 
 /**
  * FOR: 64b block, 128b key
- * write codes here: Miyaguchi¨CPreneel
+ * write codes here: Miyaguchiï¿½CPreneel
  * input:
  * nonce 8 bytes -> key 16 bytes (padding zeros)
  * message 8 bytes -> message 8 bytes
