@@ -71,6 +71,9 @@ HashInfo g_hashes[] =
   { camellia_md,         128, 0x00000000, "camellia_md",  "camellia_md" },
   { camellia_mmo,        128, 0x00000000, "camellia_mmo", "camellia_mmo" },
   { camellia_mp,         128, 0x00000000, "camellia_mp",  "camellia_mp" },
+  { aes_md,         128, 0x00000000, "aes_md",  "aes_md" },
+  { aes_mmo,        128, 0x00000000, "aes_mmo", "aes_mmo" },
+  { aes_mp,         128, 0x00000000, "aes_mp",  "aes_mp" },
   
   
   

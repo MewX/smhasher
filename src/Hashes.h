@@ -34,6 +34,9 @@ void clefia_mp               ( const void * key, int len, uint32_t seed, void * 
 void camellia_md               ( const void * key, int len, uint32_t seed, void * out );
 void camellia_mmo               ( const void * key, int len, uint32_t seed, void * out );
 void camellia_mp               ( const void * key, int len, uint32_t seed, void * out );
+void aes_md               ( const void * key, int len, uint32_t seed, void * out );
+void aes_mmo               ( const void * key, int len, uint32_t seed, void * out );
+void aes_mp               ( const void * key, int len, uint32_t seed, void * out );
 
 
 //----------

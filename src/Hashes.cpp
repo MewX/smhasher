@@ -114,8 +114,16 @@ void camellia_mp               ( const void * key, int len, uint32_t seed, void 
     HASH_CAMELLIA_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
 }
 
-
-
+#include "ourhash/aessoft.h"
+void aes_md               ( const void * key, int len, uint32_t seed, void * out ) {
+    HASH_AES_PFMD((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void aes_mmo            ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_AES_MMO((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
+void aes_mp               ( const void * key, int len, uint32_t seed, void * out ){
+    HASH_AES_MP((uint64_t)seed, (uint8_t *)key, (uint16_t) len, (uint8_t *)out);
+}
 
 
 //----------------------------------------------------------------------------
