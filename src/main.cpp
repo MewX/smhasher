@@ -585,6 +585,7 @@ void testHash ( const char * name )
 int main ( int argc, char ** argv )
 {
   const char * hashToTest = "murmur3a";
+  int testnum = -1;
 
   if(argc < 2)
   {
@@ -593,31 +594,40 @@ int main ( int argc, char ** argv )
   else
   {
     hashToTest = argv[1];
+    if (argc >= 3) {
+      testnum = atoi(argv[2]);
+    }
   }
 
   // Code runs on the 3rd CPU by default
-
-  SetAffinity((1 << 2));
+  //SetAffinity((1 << 2));
 
   // no need to selftest
   //SelfTest();
 
   int timeBegin = clock();
 
-  g_testAll = true;
-
-  //g_testSanity = true;
-  //g_testSpeed = true;
-  //g_testAvalanche = true;
-  //g_testBIC = true;
-  //g_testCyclic = true;
-  //g_testTwoBytes = true;
-  //g_testDiff = true;
-  //g_testDiffDist = true;
-  //g_testSparse = true;
-  //g_testPermutation = true;
-  //g_testWindow = true;
-  //g_testZeroes = true;
+  if (testnum <= 0) {
+    g_testAll = true;
+  } else if (testnum == 1) {
+    g_testSanity = true;
+    g_testSpeed = true;
+  } else if (testnum == 2) {
+    g_testAvalanche = true;
+    g_testBIC = true;
+  } else if (testnum == 3) {
+    g_testCyclic = true;
+    g_testTwoBytes = true;
+  } else if (testnum == 4) {
+    g_testDiff = true;
+    g_testDiffDist = true;
+  } else if (testnum == 5) {
+    g_testSparse = true;
+    g_testPermutation = true;
+  } else if (testnum == 6) {
+    g_testWindow = true;
+    g_testZeroes = true;
+  }
 
   testHash(hashToTest);
 
